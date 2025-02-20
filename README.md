@@ -1,51 +1,10 @@
 # Nexus Prover Node
 Anda mendapatkan Poin NEX dengan berkontribusi komputasi dan berinteraksi dengan ekosistem Nexus.
 
----
-
-### Apa bisa run di banyak perangkat?
-* Yes, you can connect as many devices as you want, including desktops, laptops, mobile phones, and servers
-* You can link and manage all your devices from a single Nexus account.
-* You can also prove computations in multiple browser tabs simultaneously.
 
 ---
 
-## --> Create account
-* Create an account at https://app.nexus.xyz.
-
-* Follow the account linking instructions.
-
-* Your contributions will earn NEX Points.
-
-* Track your progress on the leaderboard.
-
-* Manage all your nodes in one place.
-
----
-
-## --> Contribute via Web browser
-Login into the dashboard and press the button to start your node
-
-https://app.nexus.xyz/
-
-- You can run prover nodes on multiple browser tabs, desktops, laptops, mobile phones.
-- Link and manage all your devices from a single Nexus account.
-- More computations = More NEX points
-
----
-
-## --> Contribute via Chromium (Browser on VPS)
-You can install a Chromium browser on your Linux VPS and run a web-broswer based node on it too. [Guide to install Chromium on VPS](https://github.com/0xmoei/Install-Chromium-Linux-Browser)
-
-* Open as many tabs as you want and run provers on all of them, LOL.
-* I'm not sure about the performance but hey i'm just testing it.
-* You'd better to have at least 1 CLI node near it too.
-
-![image](https://github.com/user-attachments/assets/0e004e3c-f73e-4c32-bb86-0043b16259b7)
-
----
-
-## --> Contribute via CLI (NOT LIVE YET, Steps are not accurate)
+## --> Contribute via CLI
 ### 1. Install Dependecies
 ```bash
 sudo apt update & sudo apt upgrade -y
@@ -95,6 +54,18 @@ curl https://cli.nexus.xyz/ | sh
 * To return to screen: `screen -r nexus`
 
 * To kill screen: `screen -XS nexus quit`
+
+## 5. If your RAM is not enough you can add manual using swap
+```bash
+sudo fallocate -l 24G /swapfile &&
+sudo chmod 600 /swapfile &&
+sudo mkswap /swapfile &&
+sudo swapon /swapfile &&
+sudo cp /etc/fstab /etc/fstab.bak &&
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+
+```
+Edit 24G with your VPS RAM example if your VPS RAM is 6 GB change to 6 GB
 
 ---
 
